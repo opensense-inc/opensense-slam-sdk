@@ -168,7 +168,8 @@ class RTABMapSLAM(SlamBase):
             '-p', f'subscribe_rgbd:={str(subscribe_rgbd).lower()}',
             '-p', 'subscribe_odom_info:=true',
             '-p', 'approx_sync:=false',  # Exact sync as in working launch file
-            '-p', 'wait_imu_to_init:=true'
+            '-p', 'wait_imu_to_init:=true',
+            '-p', f'use_sim_time:={str(self._config.use_sim_time).lower()}'  # Simulation time support
         ])
 
         return cmd

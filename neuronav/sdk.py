@@ -29,7 +29,7 @@ def run_slam(
     Run SLAM with specified sensor and algorithm
 
     Args:
-        sensor: Sensor instance (RealSenseSensor, OAKDSensor, etc.)
+        sensor: Sensor instance (RealSenseSensor, OAKDSensor, Rosbag, etc.)
         slam_algorithm: SLAM algorithm instance (RTABMapSLAM, etc.)
         sensor_config: Optional sensor configuration (uses defaults if not provided)
         slam_config: Optional SLAM configuration (uses defaults if not provided)
@@ -61,6 +61,12 @@ def run_slam(
         # Configure SLAM
         if slam_config is None:
             slam_config = SlamConfig()
+        
+        from .sensors.rosbag import Rosbag
+        if isinstance(sensor, Rosbag):
+            slam_config.use_sim_time = True
+            print("📼 Detected rosbag playback - using simulation time")
+        
         slam_algorithm.configure(slam_config)
 
         # Start sensor

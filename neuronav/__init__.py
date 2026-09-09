@@ -44,6 +44,7 @@ from .__version__ import __version__, __version_info__, __author__, __license__
 # SDK Interface
 from .sdk import run_slam
 from .sensors import RealSenseSensor, OAKDSensor, SensorBase, SensorConfig
+from .sensors.rosbag import Rosbag, RosbagConfig
 from .algorithms import RTABMapSLAM
 from .slam_base import SlamBase, SlamStatus, SlamConfig
 from .visualization import visualize, FoxgloveVisualizer
@@ -72,8 +73,10 @@ __all__ = [
     # Sensors
     "RealSenseSensor",
     "OAKDSensor",
+    "Rosbag",
     "SensorBase",
     "SensorConfig",
+    "RosbagConfig",
     # SLAM Algorithms
     "RTABMapSLAM",
     "SlamBase",

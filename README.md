@@ -34,6 +34,14 @@ sensor = OAKDSensor()
 run_slam(sensor, RTABMapSLAM())
 ```
 
+**MCAP Rosbag Playback:**
+```python
+from neuronav import Rosbag, RTABMapSLAM, run_slam
+
+sensor = Rosbag("/path/to/recording.mcap")
+run_slam(sensor, RTABMapSLAM())
+```
+
 **With Visualization:**
 ```python
 run_slam(sensor, RTABMapSLAM(), visualize=True)
@@ -43,9 +51,10 @@ run_slam(sensor, RTABMapSLAM(), visualize=True)
 ## Features
 
 - **2-Line API** - Start SLAM instantly
-- **Sensor Agnostic** - RealSense, OAK-D, or add your own
+- **Sensor Agnostic** - RealSense, OAK-D, rosbags, or add your own
 - **RTAB-Map Integration** - Production-ready visual SLAM
 - **Foxglove Visualization** - Web-based 3D viewing
+- **Rosbag Playback** - Test on recorded data without hardware
 - **Extensible** - Add sensors in 20 min, SLAM algorithms in 1 hour
 
 ## Installation
@@ -68,6 +77,7 @@ pip install -e .
 **Sensors:**
 - Intel RealSense D435i, D455, D415
 - Luxonis OAK-D Pro/W
+- MCAP rosbag files (.mcap)
 
 **SLAM:**
 - RTAB-Map RGB-D SLAM

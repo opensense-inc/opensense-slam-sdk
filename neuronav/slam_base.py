@@ -43,6 +43,9 @@ class SlamConfig:
     enable_loop_closing: bool = True
     map_publish_frequency_ms: int = 1000
     
+    # Simulation
+    use_sim_time: bool = False  # Use simulation time (required for rosbag playback)
+    
     # Docker settings
     use_gpu: bool = False
     ros_domain_id: int = 55
